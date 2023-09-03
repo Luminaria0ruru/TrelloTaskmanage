@@ -151,22 +151,6 @@ function CardInfo(props: CardInfoProps) {
               <Chip key={index} item={item} />
             ))}
           </div>
-
-        <div className="cardinfo-box">
-          <div className="cardinfo-box-title">
-            <CheckSquare />
-            <p>Tasks</p>
-          </div>
-          <div className="cardinfo-box-progress-bar">
-            <div
-              className="cardinfo-box-progress"
-              style={{
-                width: `${calculatedPercent}%`,
-                backgroundColor: calculatedPercent === 100 ? "limegreen" : "",
-              }}
-            />
-          </div>
-          </div>
         </div>
       </div>
     </Modal>
