@@ -99,6 +99,7 @@ function Dashboard() {
       (item: IBoard) => item.id === targetCard.boardId,
     );
     if (targetBoardIndex < 0) return;
+    if (targetBoardIndex != 0) return;
 
     const targetCardIndex = boards[targetBoardIndex]?.cards?.findIndex(
       (item) => item.id === targetCard.cardId,
