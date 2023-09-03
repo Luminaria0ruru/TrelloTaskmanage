@@ -20,16 +20,6 @@ function Dashboard() {
     cardId: 0,
   });
 
-  const addboardHandler = (name: string) => {
-    const tempBoardsList = [...boards];
-    tempBoardsList.push({
-      id: Date.now() + Math.random() * 2,
-      title: name,
-      cards: [],
-    });
-    setBoards(tempBoardsList);
-  };
-
   const removeBoard = (boardId: number) => {
     const boardIndex = boards.findIndex((item: IBoard) => item.id === boardId);
     if (boardIndex < 0) return;
@@ -39,21 +29,7 @@ function Dashboard() {
     setBoards(tempBoardsList);
   };
 
-  const addCardHandler = (boardId: number, title: string) => {
-    const boardIndex = boards.findIndex((item: IBoard) => item.id === boardId);
-    if (boardIndex < 0) return;
 
-    const tempBoardsList = [...boards];
-    tempBoardsList[boardIndex].cards.push({
-      id: Date.now() + Math.random() * 2,
-      title,
-      labels: [],
-      date: "",
-      tasks: [],
-      desc: "",
-    });
-    setBoards(tempBoardsList);
-  };
 
   const removeCard = (boardId: number, cardId: number) => {
     const boardIndex = boards.findIndex((item: IBoard) => item.id === boardId);
@@ -144,7 +120,6 @@ function Dashboard() {
             <Board
               key={item.id}
               board={item}
-              addCard={addCardHandler}
               removeBoard={() => removeBoard(item.id)}
               removeCard={removeCard}
               onDragEnd={onDragEnd}
@@ -152,16 +127,6 @@ function Dashboard() {
               updateCard={updateCard}
             />
           ))}
-          <div className="app-boards-last">
-            <CustomInput
-              displayClass="app-boards-add-board"
-              editClass="app-boards-add-board-edit"
-              placeholder="Enter Board Name"
-              text="Add Board"
-              buttonText="Add Board"
-              onSubmit={addboardHandler}
-            />
-          </div>
         </div>
       </div>
     </div>
