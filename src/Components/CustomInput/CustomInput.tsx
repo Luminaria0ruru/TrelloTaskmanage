@@ -36,31 +36,11 @@ function CustomInput(props: CustomInputProps) {
 
   return (
     <div className="custom-input">
-      {isCustomInput ? (
-        <form
-          className={`custom-input-edit ${editClass ? editClass : ""}`}
-          onSubmit={submission}
-        >
-          <input
-            type="text"
-            value={inputText}
-            placeholder={placeholder || text}
-            onChange={(event) => setInputText(event.target.value)}
-            autoFocus
-          />
-          <div className="custom-input-edit-footer">
-            <button type="submit">{buttonText || "Add"}</button>
-            <X onClick={() => setIsCustomInput(false)} className="closeIcon" />
-          </div>
-        </form>
-      ) : (
         <p
           className={`custom-input-display ${displayClass ? displayClass : ""}`}
-          onClick={() => setIsCustomInput(true)}
         >
           {text}
         </p>
-      )}
     </div>
   );
 }

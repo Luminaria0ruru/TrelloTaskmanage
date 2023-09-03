@@ -135,22 +135,9 @@ function CardInfo(props: CardInfoProps) {
           </div>
           <CustomInput
             defaultValue={cardValues.desc}
-            text={cardValues.desc || "Add a Description"}
+            text={cardValues.desc || ""}
             placeholder="Enter description"
             onSubmit={updateDesc}
-          />
-        </div>
-
-        <div className="cardinfo-box">
-          <div className="cardinfo-box-title">
-            <Calendar />
-            <p>Date</p>
-          </div>
-          <input
-            type="date"
-            defaultValue={cardValues.date}
-            min={new Date().toISOString().substr(0, 10)}
-            onChange={(event) => updateDate(event.target.value)}
           />
         </div>
 
@@ -161,27 +148,9 @@ function CardInfo(props: CardInfoProps) {
           </div>
           <div className="cardinfo-box-labels">
             {cardValues.labels?.map((item, index) => (
-              <Chip key={index} item={item} removeLabel={removeLabel} />
+              <Chip key={index} item={item} />
             ))}
           </div>
-          <ul>
-            {colorsList.map((item, index) => (
-              <li
-                key={index}
-                style={{ backgroundColor: item }}
-                className={selectedColor === item ? "li-active" : ""}
-                onClick={() => setSelectedColor(item)}
-              />
-            ))}
-          </ul>
-          <CustomInput
-            text="Add Label"
-            placeholder="Enter label text"
-            onSubmit={(value: string) =>
-              addLabel({ color: selectedColor, text: value })
-            }
-          />
-        </div>
 
         <div className="cardinfo-box">
           <div className="cardinfo-box-title">
@@ -197,26 +166,7 @@ function CardInfo(props: CardInfoProps) {
               }}
             />
           </div>
-          <div className="cardinfo-box-task-list">
-            {cardValues.tasks?.map((item) => (
-              <div key={item.id} className="cardinfo-box-task-checkbox">
-                <input
-                  type="checkbox"
-                  defaultChecked={item.completed}
-                  onChange={(event) =>
-                    updateTask(item.id, event.target.checked)
-                  }
-                />
-                <p className={item.completed ? "completed" : ""}>{item.text}</p>
-                <Trash onClick={() => removeTask(item.id)} />
-              </div>
-            ))}
           </div>
-          <CustomInput
-            text={"Add a Task"}
-            placeholder="Enter task"
-            onSubmit={addTask}
-          />
         </div>
       </div>
     </Modal>

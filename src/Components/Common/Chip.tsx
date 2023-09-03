@@ -6,11 +6,10 @@ interface ChipProps {
   removeLabel?: (label: ILabel) => void;
 }
 export default function Chip(props: ChipProps) {
-  const { item, removeLabel } = props;
+  const { item, } = props;
   return (
     <label style={{ backgroundColor: item.color, color: "#fff" }}>
       {item.text}
-      {removeLabel && <X onClick={() => removeLabel(item)} />}
     </label>
   );
 }
