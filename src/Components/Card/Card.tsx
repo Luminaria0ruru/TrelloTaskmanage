@@ -12,10 +12,12 @@ interface CardProps {
   boardId: number;
   removeCard: (boardId: number, cardId: number) => void;
   onDragEnd: (boardId: number, cardId: number) => void;
+  onClick: (boardId: number, cardId: number) => void;
   onDragEnter: (boardId: number, cardId: number) => void;
   updateCard: (boardId: number, cardId: number, card: ICard) => void;
 }
 function Card(props: CardProps) {
+  const { card, boardId, onDragEnd, onClick,onDragEnter, updateCard } =
   const { card, boardId, removeCard, onDragEnd, onDragEnter, updateCard } =
     props;
   const { id, title, desc, date, tasks, labels } = card;
@@ -38,6 +40,7 @@ function Card(props: CardProps) {
         draggable
         onDragEnd={() => onDragEnd(boardId, id)}
         onDragEnter={() => onDragEnter(boardId, id)}
+        onClick={() => onClick(boardId, id)}
       >
         <div className="card-top">
           <div className="card-top-labels">

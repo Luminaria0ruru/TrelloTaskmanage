@@ -60,6 +60,7 @@ function Dashboard() {
     setBoards(tempBoardsList);
   };
 
+  const onClick = (boardId: number, cardId: number) =>  {
   const onDragEnd = (boardId: number, cardId: number) => {
     const sourceBoardIndex = boards.findIndex(
       (item: IBoard) => item.id === boardId,
@@ -123,6 +124,7 @@ function Dashboard() {
               removeBoard={() => removeBoard(item.id)}
               removeCard={removeCard}
               onDragEnd={onDragEnd}
+              onClick={onClick}
               onDragEnter={onDragEnter}
               updateCard={updateCard}
             />

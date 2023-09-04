@@ -12,6 +12,7 @@ interface BoardProps {
   removeBoard: (boardId: number) => void;
   removeCard: (boardId: number, cardId: number) => void;
   onDragEnd: (boardId: number, cardId: number) => void;
+  onClick: (boardId: number, cardId: number) => void;
   onDragEnter: (boardId: number, cardId: number) => void;
   updateCard: (boardId: number, cardId: number, card: ICard) => void;
 }
@@ -22,6 +23,7 @@ function Board(props: BoardProps) {
     removeBoard,
     removeCard,
     onDragEnd,
+    onClick,
     onDragEnter,
     updateCard,
   } = props;
@@ -58,6 +60,7 @@ function Board(props: BoardProps) {
               removeCard={removeCard}
               onDragEnter={onDragEnter}
               onDragEnd={onDragEnd}
+              onClick={onClick}
               updateCard={updateCard}
             />
           ))}
