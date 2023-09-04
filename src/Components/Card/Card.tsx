@@ -50,7 +50,10 @@ function Card(props: CardProps) {
           </div>
           <div
             className="card-top-more"
-            onClick={() => setShowModal(true)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowModal(true);
+            }}
           >
             <MoreHorizontal />
             {showDropdown && (
