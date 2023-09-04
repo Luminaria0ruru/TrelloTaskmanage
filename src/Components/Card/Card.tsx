@@ -38,7 +38,6 @@ function Card(props: CardProps) {
         draggable
         onDragEnd={() => onDragEnd(boardId, id)}
         onDragEnter={() => onDragEnter(boardId, id)}
-        onClick={() => setShowModal(true)}
       >
         <div className="card-top">
           <div className="card-top-labels">
@@ -48,10 +47,7 @@ function Card(props: CardProps) {
           </div>
           <div
             className="card-top-more"
-            onClick={(event) => {
-              event.stopPropagation();
-              setShowDropdown(true);
-            }}
+            onClick={() => setShowModal(true)}
           >
             <MoreHorizontal />
             {showDropdown && (
