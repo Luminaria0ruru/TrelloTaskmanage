@@ -73,13 +73,19 @@ function Dashboard() {
     if (sourceCardIndex < 0) return;
 
     const targetBoardIndex = boards.findIndex(
-      (item: IBoard) => item.id === targetCard.boardId,
+      (item: IBoard) => item.id === 1651319512266.0001
     );
     if (targetBoardIndex < 0) return;
     if (targetBoardIndex != 0) return;
 
-    const targetCardIndex = boards[targetBoardIndex]?.cards?.findIndex(
-      (item) => item.id === targetCard.cardId,
+    const tempBoardsList = [...boards];
+    const sourceCard = tempBoardsList[sourceBoardIndex].cards[sourceCardIndex];
+    //ここでカード移動する。
+    //tempBoardsList[sourceBoardIndex].cards.splice(sourceCardIndex, 1);
+    tempBoardsList[targetBoardIndex].cards.splice(
+      tempBoardsList[targetBoardIndex].cards.length,
+      0,
+      sourceCard,
     );
     if (targetCardIndex < 0) return;
 
