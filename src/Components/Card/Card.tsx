@@ -18,6 +18,7 @@ interface CardProps {
   updateCard: (boardId: number, cardId: number, card: ICard) => void;
 }
 function Card(props: CardProps) {
+  const { card, boardId, onDragEnd, onClick,removeCard,onDragEnter, updateCard } =
   const { card, boardId, onDragEnd, onClick,onDragEnter, updateCard } =
   const { card, boardId, removeCard, onDragEnd, onDragEnter, updateCard } =
     props;
@@ -81,6 +82,7 @@ function Card(props: CardProps) {
             <p className="card-footer-item">
               <X 
                 className="card-footer-icon" 
+                onClick={() => removeCard(boardId,id)}
               <Clock className="card-footer-icon" />
               {formatDate(date)}
               />
