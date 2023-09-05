@@ -87,6 +87,7 @@ function Dashboard() {
       0,
       sourceCard,
     );
+    if(boardId != 1651319512266.0001) return;
 
     const tempBoardsList = [...boards];
     const sourceCard = tempBoardsList[sourceBoardIndex].cards[sourceCardIndex];
