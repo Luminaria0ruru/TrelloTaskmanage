@@ -73,6 +73,9 @@ function Card(props: CardProps) {
             <AlignLeft />
           </p>
         </div>
+        { 
+          boardId == 1651319512266.0001 
+          &&
         <div className="card-footer">
           {date && (
             <p className="card-footer-item">
@@ -82,6 +85,8 @@ function Card(props: CardProps) {
               {formatDate(date)}
               />
             </p>
+          </div>
+        }
           )}
           {tasks && tasks?.length > 0 && (
             <p className="card-footer-item">
