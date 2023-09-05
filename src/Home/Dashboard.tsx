@@ -87,7 +87,6 @@ function Dashboard() {
       0,
       sourceCard,
     );
-    if (targetCardIndex < 0) return;
 
     const tempBoardsList = [...boards];
     const sourceCard = tempBoardsList[sourceBoardIndex].cards[sourceCardIndex];
