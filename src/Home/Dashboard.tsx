@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Board from "../Components/Board/Board";
 import "./Dashboard.css";
-import CustomInput from "../Components/CustomInput/CustomInput";
 import { ICard, IBoard } from "../Interfaces/Kanban";
 import { fetchBoardList, updateLocalStorageBoards } from "../Helper/APILayers";
 
@@ -28,8 +27,6 @@ function Dashboard() {
     tempBoardsList.splice(boardIndex, 1);
     setBoards(tempBoardsList);
   };
-
-
 
   const removeCard = (boardId: number, cardId: number) => {
     const boardIndex = boards.findIndex((item: IBoard) => item.id === boardId);
@@ -61,7 +58,6 @@ function Dashboard() {
   };
 
   const onClick = (boardId: number, cardId: number) =>  {
-  const onDragEnd = (boardId: number, cardId: number) => {
     const sourceBoardIndex = boards.findIndex(
       (item: IBoard) => item.id === boardId,
     );
@@ -80,20 +76,43 @@ function Dashboard() {
 
     const tempBoardsList = [...boards];
     const sourceCard = tempBoardsList[sourceBoardIndex].cards[sourceCardIndex];
-    //ここでカード移動する。
-    //tempBoardsList[sourceBoardIndex].cards.splice(sourceCardIndex, 1);
     tempBoardsList[targetBoardIndex].cards.splice(
       tempBoardsList[targetBoardIndex].cards.length,
       0,
       sourceCard,
     );
+    setBoards(tempBoardsList);
+
+    setTargetCard({
+      boardId: 0,
+      cardId: 0,
+    });
+  };
+
+  const onDragEnd = (boardId: number, cardId: number) => {
+    const sourceBoardIndex = boards.findIndex(
+      (item: IBoard) => item.id === boardId,
+    );
+    if (sourceBoardIndex < 0) return;
     if(boardId != 1651319512266.0001) return;
+
+    const sourceCardIndex = boards[sourceBoardIndex]?.cards?.findIndex(
+      (item) => item.id === cardId,
+    );
+    if (sourceCardIndex < 0) return;
+
+    const targetBoardIndex = boards.findIndex(
+      (item: IBoard) => item.id === 1651319512266.0001
+    );
+    if (targetBoardIndex < 0) return;
+    if (targetBoardIndex != 0) return;
 
     const tempBoardsList = [...boards];
     const sourceCard = tempBoardsList[sourceBoardIndex].cards[sourceCardIndex];
+    //ここでカード移動する。
     tempBoardsList[sourceBoardIndex].cards.splice(sourceCardIndex, 1);
     tempBoardsList[targetBoardIndex].cards.splice(
-      targetCardIndex,
+      tempBoardsList[targetBoardIndex].cards.length,
       0,
       sourceCard,
     );
@@ -116,6 +135,7 @@ function Dashboard() {
   useEffect(() => {
     updateLocalStorageBoards(boards);
   }, [boards]);
+  
   return (
     <div className="app">
       <div className="app-nav">

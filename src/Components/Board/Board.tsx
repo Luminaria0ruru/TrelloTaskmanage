@@ -20,7 +20,6 @@ interface BoardProps {
 function Board(props: BoardProps) {
   const {
     board,
-    removeBoard,
     removeCard,
     onDragEnd,
     onClick,
@@ -46,7 +45,6 @@ function Board(props: BoardProps) {
                 class="board-dropdown"
                 onClose={() => setShowDropdown(false)}
               >
-                <p onClick={() => removeBoard(board?.id)}>Delete Board</p>
               </Dropdown>
             )}
           </div>

@@ -1,7 +1,3 @@
-import React, { useState } from "react";
-
-import { X } from "react-feather";
-
 import "./CustomInput.css";
 interface CustomInputProps {
   text: string;
@@ -15,24 +11,8 @@ interface CustomInputProps {
 function CustomInput(props: CustomInputProps) {
   const {
     text,
-    onSubmit,
     displayClass,
-    editClass,
-    placeholder,
-    defaultValue,
-    buttonText,
   } = props;
-  const [isCustomInput, setIsCustomInput] = useState(false);
-  const [inputText, setInputText] = useState(defaultValue || "");
-
-  const submission = (e: any) => {
-    e.preventDefault();
-    if (inputText && onSubmit) {
-      setInputText("");
-      onSubmit(inputText);
-    }
-    setIsCustomInput(false);
-  };
 
   return (
     <div className="custom-input">

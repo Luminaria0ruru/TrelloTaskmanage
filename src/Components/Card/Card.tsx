@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { AlignLeft,X,MoreHorizontal } from "react-feather";
-import { AlignLeft, CheckSquare, Clock, MoreHorizontal } from "react-feather";
-import { formatDate } from "../../Helper/Util";
 import { ICard } from "../../Interfaces/Kanban";
 import Chip from "../Common/Chip";
 import Dropdown from "../Dropdown/Dropdown";
@@ -19,10 +17,8 @@ interface CardProps {
 }
 function Card(props: CardProps) {
   const { card, boardId, onDragEnd, onClick,removeCard,onDragEnter, updateCard } =
-  const { card, boardId, onDragEnd, onClick,onDragEnter, updateCard } =
-  const { card, boardId, removeCard, onDragEnd, onDragEnter, updateCard } =
     props;
-  const { id, title, desc, date, tasks, labels } = card;
+  const { id, title, desc, labels } = card;
   const [showDropdown, setShowDropdown] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -40,9 +36,12 @@ function Card(props: CardProps) {
         className="card"
         key={card.id}
         draggable
-        onDragEnd={() => onDragEnd(boardId, id)}
+        onDragEnd={() => onDragEnd(boardId,id)}
         onDragEnter={() => onDragEnter(boardId, id)}
-        onClick={() => onClick(boardId, id)}
+        onClick={() => {
+          if(boardId != 1651319512266.0001){
+            onClick(boardId, id);
+        }}}
       >
         <div className="card-top">
           <div className="card-top-labels">
@@ -63,7 +62,6 @@ function Card(props: CardProps) {
                 class="board-dropdown"
                 onClose={() => setShowDropdown(false)}
               >
-                <p onClick={() => removeCard(boardId, id)}>Delete Card</p>
               </Dropdown>
             )}
           </div>
@@ -77,26 +75,15 @@ function Card(props: CardProps) {
         { 
           boardId == 1651319512266.0001 
           &&
-        <div className="card-footer">
-          {date && (
+          <div className="card-footer">
             <p className="card-footer-item">
               <X 
                 className="card-footer-icon" 
                 onClick={() => removeCard(boardId,id)}
-              <Clock className="card-footer-icon" />
-              {formatDate(date)}
               />
             </p>
           </div>
         }
-          )}
-          {tasks && tasks?.length > 0 && (
-            <p className="card-footer-item">
-              <CheckSquare className="card-footer-icon" />
-              {tasks?.filter((item) => item.completed)?.length}/{tasks?.length}
-            </p>
-          )}
-        </div>
       </div>
     </>
   );
