@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.38da2e67.chunk.css",
-    "main.js": "/static/js/main.c7ba9231.chunk.js",
-    "main.js.map": "/static/js/main.c7ba9231.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.22504f5f.js",
-    "runtime-main.js.map": "/static/js/runtime-main.22504f5f.js.map",
-    "static/js/2.baed8471.chunk.js": "/static/js/2.baed8471.chunk.js",
-    "static/js/2.baed8471.chunk.js.map": "/static/js/2.baed8471.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.38da2e67.chunk.css.map": "/static/css/main.38da2e67.chunk.css.map",
-    "static/js/2.baed8471.chunk.js.LICENSE.txt": "/static/js/2.baed8471.chunk.js.LICENSE.txt",
-    "static/media/Dashboard.css": "/static/media/background.1ae39a95.jpg"
+    "main.css": "/TrelloTaskmanage/static/css/main.74abf0a2.chunk.css",
+    "main.js": "/TrelloTaskmanage/static/js/main.c7ba9231.chunk.js",
+    "main.js.map": "/TrelloTaskmanage/static/js/main.c7ba9231.chunk.js.map",
+    "runtime-main.js": "/TrelloTaskmanage/static/js/runtime-main.8b864534.js",
+    "runtime-main.js.map": "/TrelloTaskmanage/static/js/runtime-main.8b864534.js.map",
+    "static/js/2.baed8471.chunk.js": "/TrelloTaskmanage/static/js/2.baed8471.chunk.js",
+    "static/js/2.baed8471.chunk.js.map": "/TrelloTaskmanage/static/js/2.baed8471.chunk.js.map",
+    "index.html": "/TrelloTaskmanage/index.html",
+    "static/css/main.74abf0a2.chunk.css.map": "/TrelloTaskmanage/static/css/main.74abf0a2.chunk.css.map",
+    "static/js/2.baed8471.chunk.js.LICENSE.txt": "/TrelloTaskmanage/static/js/2.baed8471.chunk.js.LICENSE.txt",
+    "static/media/Dashboard.css": "/TrelloTaskmanage/static/media/background.1ae39a95.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.22504f5f.js",
+    "static/js/runtime-main.8b864534.js",
     "static/js/2.baed8471.chunk.js",
-    "static/css/main.38da2e67.chunk.css",
+    "static/css/main.74abf0a2.chunk.css",
     "static/js/main.c7ba9231.chunk.js"
   ]
 }

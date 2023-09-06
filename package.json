@@ -17,6 +17,8 @@
     "typescript": "^4.6.4",
     "web-vitals": "^1.0.1"
   },
+  "homepage": "https://luminaria0ruru.github.io/TrelloTaskmanage/",
+  
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
